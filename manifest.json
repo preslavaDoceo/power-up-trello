@@ -1,0 +1,14 @@
+{
+    "trello":{
+        "url": "https://trello.com",
+        "actions":[
+            {
+                "name":"DATA CARD",
+                "icon":{
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Trello_logo.svg"
+                },
+                "callback": "onButtonClick"
+            }
+        ]
+    }
+}

@@ -1,21 +1,22 @@
-const t = TelloPowerUp.iframe();
 
-const cardButton = (t, options) =>{
-    return [
-        {
-            text:"SEND DATA",
-            callback:(t) => {
-                t.card("all").then(function(cardData){
-                    console.log(cardData)
-                    sendToServer(cardData)
-                });
-            }
-        }
-    ]
+var onBtnClick = function (t, ops){
+    console.log(cardData);
+    sendToServer(cardData);
 };
 
-TrelloPowerUp.initialize({
-    "card-buttons": cardButton
+window.TrelloPowerUp.initialize({
+    'card-buttons' : function (t, opts){
+        return [{
+            text: 'SEND DATA',
+            callback: onBtnClick,
+            condition: 'edit'
+        },{
+            text: 'Just a URL',
+            condition: 'always',
+            url: 'https://developer.atlassian.com/cloud/trello',
+            target: 'Trello Developer Site'
+        }]
+    }
 });
 
 async function sendToServer(cardData) {
